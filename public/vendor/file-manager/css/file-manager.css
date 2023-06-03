@@ -1,3 +1,11 @@
+.fm-navbar .form-control{
+  display: inline-block !important;
+}
+.table-info{
+  background-color:  red !important;
+  padding-left: 20px !important;
+  border-radius: 30px !important;
+}
 .far{
   color: #0493A8 !important;
 }
@@ -199,7 +207,11 @@
 }
 .fm-modal{
   background-color: white !important;
-  padding: 100px !important;
+}
+@media screen  and (min-width: 768px){
+  .fm-modal{
+    padding: 100px !important;
+  }
 }
 .fm-modal .modal-header{
   padding: 30px 0 30px 0 !important;
@@ -262,6 +274,17 @@
 }
 .fm-modal-properties .modal-body .col-9 {
   word-wrap: break-word !important;
+}
+.fm-grid .active{
+  border: none !important;
+  box-shadow: none !important;
+}
+.fm-grid-item:hover{
+  border: none !important;
+  box-shadow: none !important;
+}
+.fm-table .table-info{
+  background-color:  red !important;
 }
 
 /*!

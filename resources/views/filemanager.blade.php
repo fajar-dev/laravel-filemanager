@@ -185,7 +185,7 @@
 													</div>
 												</div>
 												<div class="d-flex flex-column">
-													<h2 class="mb-1">File Manager</h2>
+													<h2 class="mb-1">Arsip Manager</h2>
 													<div class="text-muted fw-bold">
 													<a href="#">Keenthemes</a>
 													<span class="mx-3">|</span>
@@ -208,13 +208,29 @@
                       <script src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script>
                       <script>
                           document.addEventListener('DOMContentLoaded', function() {
-                              document.getElementById('fm-main-block').setAttribute('style', 'height:' + window.innerHeight + 'px');
-                        
-                              fm.$store.commit('fm/setFileCallBack', function(fileUrl) {
-                                  window.opener.fmSetLink(fileUrl);
-                                  window.close();
-                              });
+                            // set fm height
+                            document.getElementById('fm-main-block').setAttribute('style', 'height:' + window.innerHeight + 'px');
+
+                            // Helper function to get parameters from the query string.
+                            function getUrlParam(paramName) {
+                              const reParam = new RegExp('(?:[\?&]|&)' + paramName + '=([^&]+)', 'i');
+                              const match = window.location.search.match(reParam);
+
+                              return (match && match.length > 1) ? match[1] : null;
+                            }
+
+                            // Add callback to file manager
+                            fm.$store.commit('fm/setFileCallBack', function(fileUrl) {
+                              const funcNum = getUrlParam('CKEditorFuncNum');
+
+                              window.opener.CKEDITOR.tools.callFunction(funcNum, fileUrl);
+                              window.close();
+                            });
                           });
+                      </script>
+                      <script>
+                        // const data = document.querySelector("[title=About]");
+                        // data.classList.add("d-none");
                       </script>
 										</div>
 									</div>

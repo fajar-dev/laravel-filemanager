@@ -23080,7 +23080,7 @@
                               ]),
                           ]),
                       ]),
-                      n("div", { staticClass: "col-auto text-right" }, [
+                      n("div", { staticClass: "col-auto text-right d-md-flex align-items-md-center" }, [
                           n("div", { staticClass: "btn-group", attrs: { role: "group" } }, [
                               n(
                                   "button",
@@ -23111,26 +23111,9 @@
                                   [n("i", { staticClass: "fas fa-th" })]
                               ),
                           ]),
-                          n("div", { staticClass: "btn-group", attrs: { role: "group" } }, [
-                              n("button", { staticClass: "btn btn-secondary", class: { active: e.fullScreen }, attrs: { type: "button", title: e.lang.btn.fullScreen }, on: { click: e.screenToggle } }, [
-                                  n("i", { staticClass: "fas fa-expand-arrows-alt" }),
-                              ]),
-                          ]),
-                          n("div", { staticClass: "btn-group", attrs: { role: "group" } }, [
-                              n(
-                                  "button",
-                                  {
-                                      staticClass: "btn btn-secondary",
-                                      attrs: { type: "button", title: e.lang.btn.about },
-                                      on: {
-                                          click: function (t) {
-                                              return e.showModal("About");
-                                          },
-                                      },
-                                  },
-                                  [n("i", { staticClass: "fas fa-question" })]
-                              ),
-                          ]),
+                          n("input", { staticClass: "form-control mb-3", attrs: { type: "text",  id: "keywords",  placeholder: "Search on the page..." } }, [
+
+                          ])
                       ]),
                   ]),
               ]);
