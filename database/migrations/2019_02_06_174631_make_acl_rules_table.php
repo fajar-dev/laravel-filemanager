@@ -21,7 +21,6 @@ class MakeAclRulesTable extends Migration
             $table->tinyInteger('access');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

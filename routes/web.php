@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileManagerController;
 
@@ -16,3 +17,7 @@ use App\Http\Controllers\FileManagerController;
 
 Route::get('arsip', [FileManagerController::class, 'index']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

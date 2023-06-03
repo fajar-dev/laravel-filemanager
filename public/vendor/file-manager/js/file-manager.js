@@ -23111,7 +23111,7 @@
                                   [n("i", { staticClass: "fas fa-th" })]
                               ),
                           ]),
-                          n("input", { staticClass: "form-control mb-3", attrs: { type: "text",  id: "keywords",  placeholder: "Search on the page..." } }, [
+                          n("input", { staticClass: "form-control fuzzy-search search mb-3", attrs: { type: "text",  id: "keywords",  placeholder: "Search on the page..." } }, [
 
                           ])
                       ]),
@@ -23553,7 +23553,7 @@
                           ]),
                       ]),
                       n(
-                          "tbody",
+                          "tbody", { staticClass: "list" },
                           [
                               e.isRootPath ? e._e() : n("tr", [n("td", { staticClass: "fm-content-item", attrs: { colspan: "4" }, on: { click: e.levelUp } }, [n("i", { staticClass: "fas fa-level-up-alt" })])]),
                               e._l(e.directories, function (t, r) {

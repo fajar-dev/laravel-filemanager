@@ -13,7 +13,7 @@
   color: #0493A8 !important;
 }
 .fm-content-item i{
-  font-size: 20px !important;
+  font-size: 22px !important;
   margin-right: 10px !important;
 }
 .fm-navbar .btn-group{
@@ -23,14 +23,15 @@
   padding-left: -100px !important;
 }
 .fm-table td {
+  padding: 10px 0 !important;
   color: #969696 !important;
   font-weight: 500 !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
 
 }
 .fm-table th {
   color: black !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
 }
 .fm-body{
   border-color: #F4F4F4 !important;

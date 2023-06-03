@@ -106,7 +106,7 @@
 										<a href="../../demo29/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
 									</div>
 									<div class="menu-item px-5">
-										<a href="../../demo29/dist/authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign Out</a>
+										<a href="{{ route('logout') }}" class="menu-link px-5">Sign Out</a>
 									</div>
 								</div>
 							</div>
@@ -120,15 +120,11 @@
 									<div class="d-flex align-items-center">
 										<img src="{{ asset('assets/media/svg/brand-logos/layer.svg') }}" class="w-40px me-5" alt="" />
 										<div class="page-title py-2 py-sm-0 d-flex flex-column justify-content-center me-3">
-											<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">File Manager</h1>
+											<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Archive Apps</h1>
 											<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
 												<li class="breadcrumb-item text-muted">
-													<a href="../../demo29/dist/index.html" class="text-muted text-hover-primary">Home</a>
+													<span class="text-muted text-hover-primary">Badan Intelegent Negara</span>
 												</li>
-												<li class="breadcrumb-item">
-													<span class="bullet bg-gray-400 w-5px h-2px"></span>
-												</li>
-												<li class="breadcrumb-item text-muted">Apps</li>
 											</ul>
 										</div>
 									</div>
@@ -166,7 +162,7 @@
 													</div>
 												</div>
 											</div>
-											<button onclick="openFullscreen()" class="btn btn-flex  btn-icon h-40px fw-bold btn-dark">
+											<button onclick="toggleFullScreen()" class="btn btn-flex  btn-icon h-40px fw-bold btn-dark">
 												<i class="ki-outline ki-duotone ki-arrow-two-diagonals fs-2"></i>
 
 											</button>
@@ -181,7 +177,7 @@
 											<div class="d-flex align-items-center">
 												<div class="symbol symbol-circle me-5">
 													<div class="symbol-label bg-transparent text-primary border border-secondary border-dashed">
-														<i class="ki-outline ki-abstract-47 fs-2x text-primary"></i>
+														<i class="ki-outline ki-duotone ki-folder fs-2x text-primary"></i>
 													</div>
 												</div>
 												<div class="d-flex flex-column">
@@ -228,10 +224,6 @@
                             });
                           });
                       </script>
-                      <script>
-                        // const data = document.querySelector("[title=About]");
-                        // data.classList.add("d-none");
-                      </script>
 										</div>
 									</div>
 								</div>
@@ -267,15 +259,35 @@
 		<script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
 		<script src="{{ asset('assets/js/widgets.bundle.js') }}"></script>
 		<script src="{{ asset('assets/js/custom/widgets.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>    
     <script>
-      var elem = document.querySelector('body');
-      function openFullscreen() {
-        if (elem.requestFullscreen) {
-          elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
-          elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE11 */
-          elem.msRequestFullscreen();
+      $('tbody').addClass("list");
+      $('.fm').attr('id','test-list');
+
+      var element = document.querySelector('tbody');
+      var monkeyList = new List('test-list', {
+      valueNames: ['fm-content-item'],
+        // page: 10,
+        // pagination: false
+      });
+      console.log('monkeyList')
+
+    </script>
+
+    <script>
+      function toggleFullScreen() {
+        var doc = window.document;
+        var docEl = doc.documentElement;
+
+        var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+        var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+        if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+        requestFullScreen.call(docEl);
+        }
+        else {
+        cancelFullScreen.call(doc);
         }
       }
     </script>
