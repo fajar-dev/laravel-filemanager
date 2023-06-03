@@ -15,7 +15,7 @@ use App\Http\Controllers\FileManagerController;
 |
 */
 
-Route::get('arsip', [FileManagerController::class, 'index']);
+Route::get('arsip', [FileManagerController::class, 'index'])->name('arsip')->middleware('auth');
 
 
 Auth::routes();
